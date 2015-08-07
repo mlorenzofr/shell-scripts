@@ -4,18 +4,18 @@
 # new downloads when the previous transfer has been finished
 
 # Download dir
-download_dir="/home/manuel/Downloads/"
+download_dir="/home/manuel/tempd/"
 # Log file
 log_file="${download_dir}transmission-cli.log"
 
 # File with magnet links
 # Each line is a link like "magnet:?xt=urn:btih: ..."
-magnet_file="magnetlinks"
+magnet_file="torrents"
 
 # Current port used
 cport=$(netstat -nt4l | grep -oE ':688[1-9]' | tr -d ":")
 
-echo "Download finished at $(date +'%Y/%m/%d %H:%M:%S')" >> ${log_file}
+echo "[$(date +'%Y/%m/%d %H:%M:%S')]: <${TR_TORRENT_NAME}> download finished" >> ${log_file}
 killall transmission-cli
 
 # Wait 60 secs to avoid errors starting transmission-cli
