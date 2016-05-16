@@ -9,5 +9,5 @@ while [ ${try} -lt 4 ]; do
 		options="-o PubkeyAuthentication=no -l root"
 	fi
 	ssh -X ${options} $(basename ${0}) $@ && break
-	try=$(${try}+1)
+    try=$((${try}+1))
 done
